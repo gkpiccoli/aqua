@@ -51,9 +51,10 @@ class InputPage extends StatelessWidget {
             stream: bloc.waterAmount,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return const Text(
-                  'Você deve beber \${snapshot.data} ml de água por dia!',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                return Text(
+                  'Você deve beber ${snapshot.data} ml de água por dia!',
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.bold),
                 );
               } else {
                 return const Text(

@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
+
 class WaterCalculatorBloc {
   // StreamController para gerenciar o estado da quantidade de água
   final _waterAmountController = StreamController<double>.broadcast();
@@ -13,7 +15,7 @@ class WaterCalculatorBloc {
     // Lógica para calcular a quantidade de água
     // Esta é apenas uma fórmula fictícia
     double amount = (weight + height) / age * 10;
-
+    debugPrint('Quantidade de agua calculada: $amount');
     // Atualizar o estado
     _setWaterAmount.add(amount);
   }
