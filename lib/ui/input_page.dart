@@ -1,3 +1,4 @@
+import 'package:aqua/utils/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../blocs/water_calculator_bloc.dart';
@@ -19,23 +20,23 @@ class InputPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(children: [
-          TextField(
+          TextFormField(
             controller: weightController,
             decoration: const InputDecoration(labelText: 'Peso (kg)'),
             keyboardType: TextInputType.number,
-            // Aqui você pode pegar o valor e usar no seu BLoC
+            validator: Validators.numberValidator,
           ),
-          TextField(
+          TextFormField(
             controller: heightController,
             decoration: const InputDecoration(labelText: 'Altura (cm)'),
             keyboardType: TextInputType.number,
-            // Aqui você pode pegar o valor e usar no seu BLoC
+            validator: Validators.numberValidator,
           ),
-          TextField(
+          TextFormField(
             controller: ageController,
             decoration: const InputDecoration(labelText: 'Idade'),
             keyboardType: TextInputType.number,
-            // Aqui você pode pegar o valor e usar no seu BLoC
+            validator: Validators.numberValidator,
           ),
           ElevatedButton(
             onPressed: () {
@@ -43,7 +44,6 @@ class InputPage extends StatelessWidget {
               double height = double.tryParse(heightController.text) ?? 0.0;
               int age = int.tryParse(ageController.text) ?? 0;
               bloc.calculateWaterAmount(weight, height, age);
-              // Aqui você pode chamar o método do seu BLoC para calcular a quantidade de água
             },
             child: const Text('Calcular'),
           ),
