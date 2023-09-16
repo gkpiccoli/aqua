@@ -2,10 +2,11 @@ import 'package:aqua/blocs/water_calculator_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  late WaterCalculatorBloc bloc;  // Usando late para sinalizar que será inicializado posteriormente
+  late WaterCalculatorAmount
+      bloc; // Usando late para sinalizar que será inicializado posteriormente
 
   setUp(() {
-    bloc = WaterCalculatorBloc();  // Inicializando antes dos testes
+    bloc = WaterCalculatorAmount(); // Inicializando antes dos testes
   });
 
   test('calculateWaterAmount returns correct value', () {
@@ -16,7 +17,11 @@ void main() {
     bloc.calculateWaterAmount(weight, height, age);
 
     bloc.waterAmount.listen(expectAsync1((amount) {
-      expect(amount, (weight + height) / age * 10);  // Substitua esta linha pela sua fórmula real
+      expect(
+          amount,
+          (weight + height) /
+              age *
+              10); // Substitua esta linha pela sua fórmula real
     }));
   });
 }

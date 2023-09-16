@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-class WaterCalculatorBloc {
+class WaterCalculatorAmount {
   // StreamController para gerenciar o estado da quantidade de água
   final _waterAmountController = StreamController<double>.broadcast();
 

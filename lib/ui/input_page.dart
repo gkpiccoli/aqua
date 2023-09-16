@@ -11,7 +11,7 @@ class InputPage extends StatelessWidget {
   InputPage({super.key});
   @override
   Widget build(BuildContext context) {
-    final bloc = Provider.of<WaterCalculatorBloc>(context);
+    final bloc = Provider.of<WaterCalculatorAmount>(context);
 
     return Scaffold(
       appBar: AppBar(

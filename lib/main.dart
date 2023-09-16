@@ -5,8 +5,8 @@ import 'ui/home_page.dart';
 import 'ui/input_page.dart';
 
 void main() {
-  runApp(Provider<WaterCalculatorBloc>(
-    create: (context) => WaterCalculatorBloc(),
+  runApp(Provider<WaterCalculatorAmount>(
+    create: (context) => WaterCalculatorAmount(),
     dispose: (context, bloc) => bloc.dispose(),
     child: const MyApp(),
   ));
