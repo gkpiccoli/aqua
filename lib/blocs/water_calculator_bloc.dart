@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 class WaterCalculatorAmount {
@@ -11,11 +10,11 @@ class WaterCalculatorAmount {
   Sink<double> get _setWaterAmount => _waterAmountController.sink;
 
   // Função para calcular a quantidade de água
-  void calculateWaterAmount(double weight, double height, int age) {
+  void calculateWaterAmount(double weight, double height, int activityLevel) {
     // Lógica para calcular a quantidade de água
-    // Esta é apenas uma fórmula fictícia
-    double amount = (weight + height) / age * 10;
-    debugPrint('Quantidade de agua calculada: $amount');
+    double amount = (weight * 30) + (height * 0.1) + (activityLevel * 200);
+    debugPrint('Quantidade de agua calculada: $amount ml');
+    
     // Atualizar o estado
     _setWaterAmount.add(amount);
   }
