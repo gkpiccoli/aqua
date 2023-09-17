@@ -21,8 +21,15 @@ class InputPageState extends State<InputPage> {
     final bloc = Provider.of<WaterCalculatorAmount>(context);
 
     return Scaffold(
+      backgroundColor: Colors.blue[50],
       appBar: AppBar(
-        title: const Text('Calculadora de Água'),
+        centerTitle: true,
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.blue[400],
+        title: const Text(
+          'Calculadora de Água',
+          style: TextStyle(fontFamily: 'Raleway', letterSpacing: 2),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
