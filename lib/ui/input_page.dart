@@ -3,12 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../blocs/water_calculator_bloc.dart';
 
-class InputPage extends StatelessWidget {
+class InputPage extends StatefulWidget {
+  const InputPage({Key? key}) : super(key: key);
+
+  @override
+  InputPageState createState() => InputPageState();
+}
+
+class InputPageState extends State<InputPage> {
   final weightController = TextEditingController();
   final heightController = TextEditingController();
   final ageController = TextEditingController();
+  String dropdownValue = 'Sedentário'; // Novo campo
 
-  InputPage({super.key});
   @override
   Widget build(BuildContext context) {
     final bloc = Provider.of<WaterCalculatorAmount>(context);
@@ -38,12 +45,32 @@ class InputPage extends StatelessWidget {
             keyboardType: TextInputType.number,
             validator: Validators.numberValidator,
           ),
+          DropdownButton<String>(
+            value: dropdownValue,
+            onChanged: (String? newValue) {
+              setState(() {
+                dropdownValue = newValue!;
+              });
+            },
+            items: <String>[
+              'Sedentário',
+              'Atividade moderada',
+              'Alta atividade'
+            ].map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+          ),
           ElevatedButton(
             onPressed: () {
               double weight = double.tryParse(weightController.text) ?? 0.0;
               double height = double.tryParse(heightController.text) ?? 0.0;
-              int age = int.tryParse(ageController.text) ?? 0;
-              bloc.calculateWaterAmount(weight, height, age);
+
+              int activityLevel = mapActivityLevel(dropdownValue); // Novo campo
+              bloc.calculateWaterAmount(
+                  weight, height, activityLevel); // Novo parâmetro
             },
             child: const Text('Calcular'),
           ),
@@ -65,5 +92,12 @@ class InputPage extends StatelessWidget {
         ]),
       ),
     );
+  }
+
+  int mapActivityLevel(String level) {
+    if (level == 'Sedentário') return 1;
+    if (level == 'Atividade moderada') return 2;
+    if (level == 'Altleta profissonal') return 3;
+    return 1;
   }
 }
