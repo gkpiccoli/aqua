@@ -2,7 +2,7 @@
 
 
 ## Introdução
-Este projeto é um aplicativo Flutter para ajudar as pessoas a calcular a quantidade de água que devem beber diariamente com base em suas características fisiológicas.
+Este projeto é um aplicativo Flutter para ajudar as pessoas a calcular a quantidade de água que devem beber diariamente com base em suas características fisiológicas e seu estilo de vida.
 
 ## Objetivo
 Construir um MVP funcional que calcule a média diária de água que um usuário deve consumir.
