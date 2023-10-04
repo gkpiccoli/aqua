@@ -74,8 +74,7 @@ class InputPageState extends State<InputPage> {
             onPressed: () {
               double weight = double.tryParse(weightController.text) ?? 0.0;
               double height = double.tryParse(heightController.text) ?? 0.0;
-
-              int activityLevel = mapActivityLevel(dropdownValue); // Novo campo
+              int activityLevel = mapActivityLevel(dropdownValue); 
               bloc.calculateWaterAmount(
                   weight, height, activityLevel); // Novo parâmetro
             },
