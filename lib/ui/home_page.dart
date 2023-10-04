@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, '/inputPage');
               },
-              child: const Text('Começar'),
+              child: const Text('Começar o teste'),
             ),
           ],
         ),
