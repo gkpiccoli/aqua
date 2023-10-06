@@ -14,7 +14,7 @@ class InputPageState extends State<InputPage> {
   final weightController = TextEditingController();
   final heightController = TextEditingController();
   final ageController = TextEditingController();
-  String dropdownValue = 'Sedentário'; 
+  String dropdownValue = 'Sedentário';
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +74,7 @@ class InputPageState extends State<InputPage> {
             onPressed: () {
               double weight = double.tryParse(weightController.text) ?? 0.0;
               double height = double.tryParse(heightController.text) ?? 0.0;
-              int activityLevel = mapActivityLevel(dropdownValue); 
+              int activityLevel = mapActivityLevel(dropdownValue);
               bloc.calculateWaterAmount(
                   weight, height, activityLevel); // Novo parâmetro
             },
@@ -84,8 +84,9 @@ class InputPageState extends State<InputPage> {
             stream: bloc.waterAmount,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
+                double liters = snapshot.data! / 1000;
                 return Text(
-                  'Você deve beber ${snapshot.data} ml de água por dia!',
+                  'Você deve beber ${liters.toStringAsFixed(2)} litros de água por dia!',
                   style: const TextStyle(
                       fontSize: 18, fontWeight: FontWeight.bold),
                 );
