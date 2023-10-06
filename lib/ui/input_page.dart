@@ -14,7 +14,7 @@ class InputPageState extends State<InputPage> {
   final weightController = TextEditingController();
   final heightController = TextEditingController();
   final ageController = TextEditingController();
-  String dropdownValue = 'Sedentário'; // Novo campo
+  String dropdownValue = 'Sedentário'; 
 
   @override
   Widget build(BuildContext context) {
