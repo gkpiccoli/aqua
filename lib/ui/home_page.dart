@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
 
   static const _durations = [
     5000,
-    4000,
+    8000,
   ];
 
   static const _heightPercentages = [
